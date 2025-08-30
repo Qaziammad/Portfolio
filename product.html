@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details - ShopEase</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow p-4 flex justify-between items-center sticky top-0 z-50">
+    <h1 class="text-2xl font-bold text-blue-600">ShopEase</h1>
+    <div class="hidden md:flex space-x-6">
+      <a href="index.html" class="text-blue-600 font-bold">Home</a>
+      <a href="shop.html" class="text-gray-700 hover:text-blue-600 font-medium">Shop</a>
+      <a href="about.html" class="text-gray-700 hover:text-blue-600 font-medium">About</a>
+      <a href="contact.html" class="text-gray-700 hover:text-blue-600 font-medium">Contact</a>
+    </div>
+    <div class="flex items-center space-x-2">
+      <button onclick="window.location.href='cart.html'" class="flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5m1.6 8l-2 9m13-9l2 9M9 21a1 1 0 100-2 1 1 0 000 2zm8 0a1 1 0 100-2 1 1 0 000 2z" />
+        </svg>
+        Cart (0)
+      </button>
+    </div>
+  </nav>
+
+  <!-- Product Section -->
+  <section id="productSection" class="max-w-7xl mx-auto p-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+    <!-- Left: Images -->
+    <div class="flex flex-col">
+      <img id="mainImage" src="" alt="Product" class="w-full h-96 object-contain mb-4 rounded-lg shadow">
+
+      <div id="imageGallery" class="flex space-x-4"></div>
+    </div>
+
+    <!-- Right: Details -->
+    <div class="flex flex-col justify-between">
+      <div>
+        <h1 id="productName" class="text-3xl font-bold text-gray-800 mb-4"></h1>
+        <p id="productPrice" class="text-2xl font-bold text-blue-600 mb-4"></p>
+        <p id="productDescription" class="text-gray-700 mb-6"></p>
+
+        <!-- Options -->
+        <div id="colorOption" class="mb-6 hidden">
+          <label class="block text-gray-700 font-medium mb-2">Color</label>
+          <select id="colorSelect" class="border border-gray-300 rounded-lg px-3 py-2 w-full"></select>
+        </div>
+
+        <div id="sizeOption" class="mb-6 hidden">
+          <label class="block text-gray-700 font-medium mb-2">Size</label>
+          <select id="sizeSelect" class="border border-gray-300 rounded-lg px-3 py-2 w-full"></select>
+        </div>
+      </div>
+
+      <button onclick="window.location.href='cart.html'" class="w-full px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition">
+        Add to Cart
+      </button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white shadow mt-10 py-8">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-6 text-center md:text-left text-gray-600">
+      <div>
+        <h3 class="font-bold mb-2">ShopEase</h3>
+        <p>Your one-stop online store for all electronics.</p>
+      </div>
+      <div>
+        <h3 class="font-bold mb-2">Quick Links</h3>
+        <ul>
+          <li><a href="shop.html" class="hover:text-blue-600">Shop</a></li>
+          <li><a href="about.html" class="hover:text-blue-600">About</a></li>
+          <li><a href="contact.html" class="hover:text-blue-600">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold mb-2">Follow Us</h3>
+        <div class="flex justify-center md:justify-start space-x-4">
+          <a href="#" class="hover:text-blue-600">Facebook</a>
+          <a href="#" class="hover:text-blue-600">Instagram</a>
+          <a href="#" class="hover:text-blue-600">Twitter</a>
+        </div>
+      </div>
+    </div>
+    <div class="text-center text-gray-500 text-sm mt-6">&copy; 2025 ShopEase. All rights reserved.</div>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    // Example products
+    const products = [
+      {
+        name: "Smartphone",
+        price: "Rs 45,000",
+        description: "Latest smartphone with amazing features.",
+        images: [
+          "https://picsum.photos/id/1011/600/400",
+          "https://picsum.photos/id/1012/600/400",
+          "https://picsum.photos/id/1013/600/400"
+        ],
+        colors: ["Black","White","Blue"],
+        sizes: ["64GB","128GB","256GB"]
+      },
+      {
+        name: "Laptop",
+        price: "Rs 85,000",
+        description: "High-performance laptop for work and gaming.",
+        images: [
+          "https://picsum.photos/id/1012/600/400",
+          "https://picsum.photos/id/1013/600/400"
+        ],
+        colors: ["Silver","Gray"],
+        sizes: [] // No size option
+      },
+      {
+        name: "Headphones",
+        price: "Rs 15,000",
+        description: "Stylish headphones with superior sound.",
+        images: [
+          "https://picsum.photos/id/1013/600/400",
+          "https://picsum.photos/id/1014/600/400"
+        ],
+        colors: [], // No color option
+        sizes: [] // No size
+      },
+      {
+        name: "Smartwatch",
+        price: "Rs 25,000",
+        description: "Track your fitness with style.",
+        images: [
+          "https://picsum.photos/id/1014/600/400",
+          "https://picsum.photos/id/1015/600/400"
+        ],
+        colors: ["Black","Red"],
+        sizes: [] // No size
+      }
+    ];
+
+    // Get query param e.g., ?product=Smartphone
+    const urlParams = new URLSearchParams(window.location.search);
+    const productName = urlParams.get("product") || "Smartphone";
+
+    const product = products.find(p => p.name.toLowerCase() === productName.toLowerCase()) || products[0];
+
+    // Set main details
+    document.getElementById("productName").innerText = product.name;
+    document.getElementById("productPrice").innerText = product.price;
+    document.getElementById("productDescription").innerText = product.description;
+    document.getElementById("mainImage").src = product.images[0];
+
+    // Images gallery
+    const gallery = document.getElementById("imageGallery");
+    product.images.forEach(img => {
+      const imgEl = document.createElement("img");
+      imgEl.src = img;
+      imgEl.className = "w-24 h-24 object-cover rounded-lg cursor-pointer hover:shadow-lg transition";
+      imgEl.onclick = () => document.getElementById("mainImage").src = img;
+      gallery.appendChild(imgEl);
+    });
+
+    // Colors
+    const colorDiv = document.getElementById("colorOption");
+    const colorSelect = document.getElementById("colorSelect");
+    if(product.colors && product.colors.length > 0){
+      colorDiv.classList.remove("hidden");
+      product.colors.forEach(color => {
+        const option = document.createElement("option");
+        option.value = color;
+        option.innerText = color;
+        colorSelect.appendChild(option);
+      });
+    }
+
+    // Sizes
+    const sizeDiv = document.getElementById("sizeOption");
+    const sizeSelect = document.getElementById("sizeSelect");
+    if(product.sizes && product.sizes.length > 0){
+      sizeDiv.classList.remove("hidden");
+      product.sizes.forEach(size => {
+        const option = document.createElement("option");
+        option.value = size;
+        option.innerText = size;
+        sizeSelect.appendChild(option);
+      });
+    }
+  </script>
+</body>
+</html>
